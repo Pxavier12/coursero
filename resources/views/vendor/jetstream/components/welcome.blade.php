@@ -32,18 +32,20 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                    @if(request())
+                    @if(count($reports)>0)
+                        @foreach($reports as $report)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                test
+                                {{$report->language}} - {{$report->exercise}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                test
+                                Corrected
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                test
+                                Success
                             </td>
                         </tr>
+                        @endforeach
                     @else
                         <td>No Appointment booked</td>
                     @endif
